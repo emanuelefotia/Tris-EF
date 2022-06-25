@@ -1,10 +1,14 @@
 <template>
   <main class="pt-8 text-center">
+    <!-- Titolo -->
     <h1 class="mb-4 text-3xl font-bold uppercase">Tic Tac Toe</h1>
+    <!-- Contenitore giallo -->
     <div id="square" class="border-2 rounded-lg py-4 px-4 mx-96">
+      <!-- Giocatore/Turno -->
       <h3 class="text-xl text-white mb-4">Player {{ player }}'s turn</h3>
-
+      <!-- Contenitore Griglia -->
       <div class="flex flex-col items-center mx-4 my-8">
+        <!-- Quadranti Griglia -->
         <div v-for="(row, x) in board" :key="x" class="flex">
           <div v-for="(cell, y) in row" :key="y" @click="MakeMove(x, y)"
             :class="`border-2 border-white w-24 h-24 hover:bg-gray-700 flex items-center justify-center material-icons-outlined text-4xl cursor-pointer ${cell === 'X' ? 'text-red-600' : 'text-blue-800'}`">
@@ -12,9 +16,10 @@
           </div>
         </div>
       </div>
-
+      <!-- Dichiara vincitore -->
       <div class="text-center">
         <h2 v-if="winner" class="text-3xl font-bold mb-8">Player {{ winner }} wins!</h2>
+        <!-- Tasto Restart -->
         <button @click="ResetGame"
           class="border-dashed border-2 px-4 py-2 rounded-lg uppercase font-bold hover:scale-105">Reset</button>
       </div>
@@ -32,8 +37,8 @@ button {
   border-color: #FACC15;
 }
 
-#square{
- border-color: #FACC15;
+#square {
+  border-color: #FACC15;
 }
 </style>
 
