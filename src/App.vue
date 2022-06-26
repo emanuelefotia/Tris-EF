@@ -46,14 +46,15 @@ button {
 
 <script setup>
 import { ref, computed } from 'vue'
-
+/* Chi sta giocando */
 const player = ref('X');
+/* [Griglia(celle)] */
 const board = ref([
   ['', '', ''],
   ['', '', ''],
   ['', '', ''],
 ])
-
+/* Combinazioni vincenti */
 const CalculateWinner = (squares) => {
   const lines = [
     [0, 1, 2],
@@ -74,9 +75,10 @@ const CalculateWinner = (squares) => {
   return null;
 }
 
-
+/* Manda a schermo il vincitore */
 const winner = computed(() => CalculateWinner(board.value.flat()))
 
+/* Fai la mossa + cambia giocatore */
 const MakeMove = (x, y) => {
   if (winner.value) return
 
@@ -86,7 +88,7 @@ const MakeMove = (x, y) => {
 
   player.value = player.value === 'X' ? 'O' : 'X'
 }
-
+/* Funzione di restart */
 const ResetGame = () => {
   board.value =
     [
